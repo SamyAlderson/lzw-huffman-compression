@@ -1,68 +1,109 @@
 # lzw-huffman-compression
-[![Go](https://img.shields.io/badge/Langue-Go-blue)](https://golang.org/)
-[![Licence](https://img.shields.io/badge/Licence-MIT-yellowgreen)](https://opensource.org/licenses/MIT)
-[![CI](https://github.com/username/lzw-huffman-compression/actions/workflows/ci.yml/badge.svg)](https://github.com/username/lzw-huffman-compression/actions/workflows/ci.yml)
 
-## Description
+> Lossless data compression using LZW and Huffman algorithms.
 
-Ce projet implémente les algorithmes LZW et Huffman pour la compression de données. LZW (Lempel-Ziv-Welch) est un algorithme de compression de données qui utilise une table de codes pour représenter les séquences de caractères répétitives. Huffman est un algorithme de codage arithmétique qui utilise une arbre binaire pour représenter les symboles les plus fréquents.
+## Overview
 
-## Fonctionnalités
+The lzw-huffman-compression project implements the LZW (Lempel-Ziv-Welch) and Huffman algorithms for lossless data compression. This project aims to provide a reliable and efficient solution for compressing and decompressing binary data. By utilizing these two well-established algorithms, it is possible to achieve significant reductions in data size while preserving the original information.
 
-* Compression de données en utilisant l'algorithme LZW
-* Compression de données en utilisant l'algorithme Huffman
-* Décompression de données compressées
-* Utilisation de la bibliothèque Go pour une implémentation efficace
+## Features
 
-## Installation
+- **Lossless Compression**: Compress binary data using LZW and Huffman algorithms.
+- **Decompression**: Decompress compressed data back to its original form.
+- **Efficient Encoding**: Optimized encoding and decoding processes for maximum performance.
+- **Flexible Configuration**: Supports customization of compression and decompression parameters.
+- **Cross-Platform Compatibility**: Designed to work on multiple platforms and architectures.
+- **Thorough Testing**: Comprehensive test suite to ensure correctness and reliability.
+- **Easy Integration**: Simple API for easy integration into existing projects.
 
-Pour installer ce projet, vous devez avoir Go installé sur votre système. Vous pouvez suivre les étapes suivantes pour installer Go :
+## Getting Started
+
+### Prerequisites
+
+- Go (version 1.17 or higher)
+- A compatible operating system (Windows, macOS, Linux)
+
+### Installation
+
 ```bash
-# Sous Linux/Mac
-curl -O https://dl.google.com/go/go1.19.4.linux-amd64.tar.gz
-tar -xvf go1.19.4.linux-amd64.tar.gz
-sudo mv go /usr/local
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
-source ~/.bashrc
+# Clone the repository
+go get github.com/username/lzw-huffman-compression
 
-# Sous Windows
-# Télécharger l'installateur de Go de la page officielle
-# Suivre les instructions d'installation
+# Build the project
+go build main.go
+
+# Run the program
+./main
 ```
-Une fois Go installé, vous pouvez cloner ce projet à l'aide de Git :
+
+### Usage
+
 ```bash
-git clone https://github.com/username/lzw-huffman-compression.git
-cd lzw-huffman-compression
-```
-## Usage avec exemples
+# Compress a file
+./main -c input.txt
 
-Pour utiliser ce projet, vous devez exécuter les commandes suivantes :
+# Decompress a file
+./main -d output.txt
+```
+
+## Architecture
+
+The project is structured into the following key components:
+
+- `utils/compressor.go`: LZW and Huffman compression logic
+- `utils/decompressor.go`: Decompression logic
+- `utils/huffman.go`: Huffman encoding and decoding
+- `utils/lzw.go`: LZW encoding and decoding
+- `cmd/lzw-huffman/main.go`: Entry point for the program
+
+## API Reference
+
+### Compressor
+
+```go
+func Compress(input []byte) ([]byte, error)
+```
+
+### Decompressor
+
+```go
+func Decompress(input []byte) ([]byte, error)
+```
+
+## Testing
+
 ```bash
-go build cmd/lzw-huffman/main.go
-./lzw-huffman -c "Bonjour, monde !" -o output.lzw
-./lzw-huffman -d output.lzw
+# Run the test suite
+go test ./...
 ```
-Cela compressera le texte "Bonjour, monde !" dans le fichier `output.lzw` et décomposera le fichier `output.lzw` pour afficher le texte original.
 
-## Architecture du projet
+## Contributing
 
-Le projet est composé des fichiers suivants :
+1. Fork the repository
+2. Create a feature branch
+3. Commit changes
+4. Push and open a PR
 
-* `cmd/lzw-huffman/main.go` : Fichier principal qui gère les commandes d'utilisation
-* `utils/lzw.go` : Implémentation de l'algorithme LZW
-* `utils/huffman.go` : Implémentation de l'algorithme Huffman
-* `utils/compressor.go` : Compresseur utilisant LZW et Huffman
-* `utils/decompressor.go` : Décompresseur utilisant LZW et Huffman
+## License
 
-## Contribuer
+MIT License
 
-Si vous souhaitez contribuer à ce projet, vous pouvez suivre les étapes suivantes :
+Copyright (c) [Year] [Author]
 
-1. Cloner le projet à l'aide de Git
-2. Créer une branche pour votre contribution
-3. Effectuer les modifications nécessaires
-4. Soumettre une demande de pull-request
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-## Licence
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
-Ce projet est sous licence MIT. Vous pouvez télécharger la licence à l'adresse suivante : https://opensource.org/licenses/MIT.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.

@@ -1,16 +1,18 @@
 # Design Document: lzw-huffman-compression
 
 ## Overview
-Implémentation de l'algorithme LZW et Huffman pour la compression de données
+# lzw-huffman-compression
+[![Go](https://img.shields.io/badge/Langue-Go-blue)](https://golang.org/)
+[![Licence](https://img.shields.io/badge/Licence-MIT-yellowgreen)](https://opensource.org/licenses/M
 
 ## Architecture
-Le projet est structuré de manière modulaire pour faciliter la maintenance.
+The project follows a modular architecture for maintainability and extensibility.
 
-## Choix techniques
-- Langage: go
-- Approche: Implementation directe avec focus sur la performance
+## Technical Choices
+- Language: go
+- Approach: Direct implementation with focus on correctness and performance
 
-## Améliorations futures
-- Optimisation des performances
-- Ajout de tests supplémentaires
-- Documentation enrichie
+## Future Improvements
+- Performance optimization
+- Additional test coverage
+- Enhanced documentation
